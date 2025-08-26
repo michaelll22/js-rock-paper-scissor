@@ -19,3 +19,43 @@ function getHumanChoice() {
     }
     return choice
 }
+
+function playRound(humanChoice, computerChoice) {
+
+    // Computer Number to Text
+    if (computerChoice === 1) {
+        result = "Rock";
+    } else if (computerChoice === 2) {
+        result = "Paper";
+    } else if (computerChoice === 3) {
+        result = "Scissor";
+    } else {
+        result = "Error Getting Number"
+    }
+
+    // Human Number to Text
+    if (humanChoice === 1) {
+        choice = "Rock";
+    } else if (humanChoice === 2) {
+        choice = "Paper";
+    } else if (humanChoice === 3) {
+        choice = "Scissor";
+    }
+
+    if (humanChoice === computerChoice ) {
+        humanScore += 1;
+        computerScore += 1;
+        alert(`Round ${round}:\nComputer: ${result} vs Human: ${choice} \nDraw\nHuman Score: ${humanScore}\nComputer Score: ${computerScore}`);
+    } else if (humanChoice === 1 && computerChoice === 3 || humanChoice === 2 && computerChoice === 1 || humanChoice === 3 && computerChoice === 2) {
+        humanScore += 1;
+        alert(`Round ${round}:\nComputer: ${result} vs Human: ${choice} \nHuman Wins\nHuman Score: ${humanScore}\nComputer Score: ${computerScore}`);
+    } else if (computerChoice === 1 && humanChoice === 3 || computerChoice === 2 && humanChoice === 1 || computerChoice === 3 && humanChoice === 2) {
+        computerScore += 1;
+        alert(`Round ${round}:\nComputer: ${result} vs Human: ${choice} \nComputer Wins\nHuman Score: ${humanScore}\nComputer Score: ${computerScore}`);
+    }
+
+}
+
+let round = 0;
+let humanScore = 0;
+let computerScore = 0;
