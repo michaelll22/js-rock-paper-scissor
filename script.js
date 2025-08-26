@@ -53,7 +53,6 @@ function playRound(humanChoice, computerChoice) {
         computerScore += 1;
         alert(`Round ${round}:\nComputer: ${result} vs Human: ${choice} \nComputer Wins\nHuman Score: ${humanScore}\nComputer Score: ${computerScore}`);
     }
-
 }
 
 function playGame() {
@@ -64,8 +63,22 @@ function playGame() {
     playRound(humanChoice, computerChoice);
 }
 
+function results(a, b) {
+    if (a > b) {
+        alert("HUMAN WINS")
+    } else if (a < b) {
+        alert("COMPUTER WINS")
+    }
+}
+
 let round = 0;
 let humanScore = 0;
 let computerScore = 0;
 
-playGame()
+while (round < 5) {
+    playGame();
+}
+
+if (round === 5) {
+    results(humanScore, computerScore)
+}
