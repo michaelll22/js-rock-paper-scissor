@@ -56,6 +56,16 @@ function playRound(humanChoice, computerChoice) {
 
 }
 
+function playGame() {
+    round += 1;
+    let computerChoice= getComputerChoice();
+    let humanChoice = getHumanChoice();
+
+    playRound(humanChoice, computerChoice);
+}
+
 let round = 0;
 let humanScore = 0;
 let computerScore = 0;
+
+playGame()
