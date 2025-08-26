@@ -4,7 +4,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let humanChoice = prompt("Rock, Paper, Scissor?");
+    let humanChoice = prompt(`Round ${round}\nEnter your weapon:\nRock, Paper, Scissor`);
     humanChoice = humanChoice.toLowerCase();
 
     if (humanChoice === "rock") {
@@ -71,14 +71,21 @@ function results(a, b) {
     }
 }
 
+function initialize() {
+    round = 0;
+    while (round < 5) {
+        playGame();
+    }
+
+    if (round === 5) {
+        results(humanScore, computerScore)
+    }
+}
+
 let round = 0;
 let humanScore = 0;
 let computerScore = 0;
 
-while (round < 5) {
-    playGame();
-}
+const start = document.querySelector(".start-btn")
 
-if (round === 5) {
-    results(humanScore, computerScore)
-}
+start.addEventListener("click", initialize);
