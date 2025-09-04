@@ -49,6 +49,7 @@ function checkWinner() {
 
     roundWinner.textContent = `${winner} wins!`;
     win = true;
+    roundWinner.style.display = "block";
 }
 
 let round = 0;
