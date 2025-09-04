@@ -1,8 +1,6 @@
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
-
     console.log(choice);
-
     return choice;
 }
 
@@ -12,46 +10,45 @@ function playRound(humanChoice, computerChoice) {
         "paper":1,
         "scissor":2
     }
-    
+ 
     human= choices[humanChoice];
 
-    result = (human - computer + 3) % 3;
-    return  result
+    const result = (human - computerChoice + 3) % 3;
+    return displayScore(result)
 }
 
-// function playGame() {
-//     round += 1;
-    
-//     let humanChoice = getHumanChoice();
-
-//     playRound(humanChoice, computerChoice);
-// }
-
-// function results(a, b) {
-//     if (a > b) {
-//         alert("HUMAN WINS")
-//     } else if (a < b) {
-//         alert("COMPUTER WINS")
-//     }
-// }
-
-// function initialize() {
-//     round = 0;
-//     while (round < 5) {
-//         playGame();
-//     }
-
-//     if (round === 5) {
-//         results(humanScore, computerScore)
-//     }
-// }
+function displayScore (result) {
+    switch (result) {
+        case 0:
+            
+            break;
+        case 1:
+            humanPoints++;
+            humanScore.textContent = humanPoints;
+            computerScore.textContent = computerPoints;
+            break;
+        case 2:
+            computerPoints++;
+            humanScore.textContent = humanPoints;
+            computerScore.textContent = computerPoints;
+            break;
+        default:
+            break;
+    }
+};
 
 let round = 0;
-let humanScore = 0;
-let computerScore = 0;
+let humanPoints = 0;
+let computerPoints = 0;
 
 const buttons = document.querySelectorAll(".btn");
-const score = document.querySelector(".score");
+const humanScore = document.querySelector(".human-score");
+const computerScore = document.querySelector(".computer-score");
+
+humanScore.textContent = humanPoints;
+computerScore.textContent = computerPoints;
+
+
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
